@@ -7,7 +7,6 @@ export class AppController {
 
   @Get()
   async getHello() {
-    console.log(await this.appService.getHello());
     return "Lorem ipsum";
   }
 }
