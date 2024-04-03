@@ -10,11 +10,9 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     const result = await this.prismaService.user.create({
       data: {
-        name: createUserDto.name
-      },
-      select: {
-        name: true,
-        id: true
+        name: createUserDto.name, 
+        email: createUserDto.email,
+        password: createUserDto.password
       }
     });
     return result;
@@ -26,6 +24,16 @@ export class UsersService {
 
   findOne(id: number) {
     return `This action returns a #${id} user`;
+  }
+
+  async findByEmail(email: string){
+    const result = await this.prismaService.user.findFirst({
+      where: {
+        email: email
+      }
+    });
+
+    return result;
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {

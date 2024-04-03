@@ -1,3 +1,3 @@
-export interface Classes{
+export interface IClasses{
     
 }

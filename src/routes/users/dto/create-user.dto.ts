@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty, Min, isNotEmpty } from "class-validator";
-import { Classes } from "src/interfaces/IClasses";
+import { IClasses } from "src/interfaces/IClasses";
 
 export class CreateUserDto {
     @IsNotEmpty()
@@ -12,5 +12,5 @@ export class CreateUserDto {
     password: string;
     icon?: string;
     permission: string;
-    classes: Classes[];
+    classes: IClasses[];
 }
