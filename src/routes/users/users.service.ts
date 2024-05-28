@@ -10,9 +10,9 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     const result = await this.prismaService.user.create({
       data: {
-        name: createUserDto.name, 
         email: createUserDto.email,
-        password: createUserDto.password
+        name: createUserDto.name,
+        password: createUserDto.password,
       }
     });
     return result;
@@ -30,6 +30,33 @@ export class UsersService {
     const result = await this.prismaService.user.findFirst({
       where: {
         email: email
+      },
+      select: {
+        userID: true,
+        icon: true,
+        permission: true,
+        Classes: true,
+        email: true,
+        name: true,
+      }
+    });
+
+    return result;
+  }
+
+  async findByEmailWithPassword(email: string){
+    const result = await this.prismaService.user.findFirst({
+      where: {
+        email: email,
+      },
+      select: {
+        userID: true,
+        icon: true,
+        permission: true,
+        Classes: true,
+        email: true,
+        name: true,
+        password: true,
       }
     });
 

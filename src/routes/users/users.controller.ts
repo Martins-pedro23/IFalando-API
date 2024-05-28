@@ -2,16 +2,22 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UserUseCases } from './useCases/Index';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly userUseCase: UserUseCases) {}
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
-    return await this.usersService.create(createUserDto);
+    return await this.userUseCase.createUserUse.execute(createUserDto);
   }
 
+  @Post('login')
+  async login(@Body() login: {email: string, password: string}) {
+    return await this.userUseCase.loginUserUseCase.execute(login.email, login.password);
+  }
+/* 
   @Get()
   findAll() {
     return 'lalala';
@@ -30,5 +36,5 @@ export class UsersController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
-  }
+  } */
 }

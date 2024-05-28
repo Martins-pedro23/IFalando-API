@@ -8,9 +8,8 @@ export class CreateUserDto {
     @IsEmail()
     email: string;
     @IsNotEmpty()
-    @Min(8)
     password: string;
     icon?: string;
-    permission: string;
-    classes: IClasses[];
+    permission?: string;
+    classes?: IClasses[];
 }
