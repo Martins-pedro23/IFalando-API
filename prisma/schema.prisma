@@ -26,7 +26,8 @@ model User {
 }
 
 model Classes{
-  id Int @default(autoincrement()) @id
-  userID Int[]
-  User User @relation(fields: [userID], references: [userID], onDelete: NoAction)
+  classesID Int @default(autoincrement()) @id
+  User User[]
+
+  @@map("Classes")
 }
