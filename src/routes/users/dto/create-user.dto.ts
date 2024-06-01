@@ -1,5 +1,5 @@
+import { Classes } from "@prisma/client";
 import { IsEmail, IsNotEmpty, Min, isNotEmpty } from "class-validator";
-import { IClasses } from "src/interfaces/IClasses";
 
 export class CreateUserDto {
     @IsNotEmpty()
@@ -11,5 +11,5 @@ export class CreateUserDto {
     password: string;
     icon?: string;
     permission?: string;
-    classes?: IClasses[];
+    classes?: Classes[];
 }
