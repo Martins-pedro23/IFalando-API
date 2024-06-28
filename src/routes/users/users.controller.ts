@@ -17,12 +17,12 @@ export class UsersController {
   async login(@Body() login: {email: string, password: string}) {
     return await this.userUseCase.loginUserUseCase.execute(login.email, login.password);
   }
-/* 
+
   @Get()
   findAll() {
     return 'lalala';
   }
-
+/*
   @Get(':id')
   findOne(@Param('id') id: string) {
     return id;
