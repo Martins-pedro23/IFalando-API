@@ -36,9 +36,9 @@ export class UsersController {
     return this.userUseCase.updateUserUseCase.execute(+id, updateUserDto);
   }
   
-  /*
+  
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
-  }*/ 
+    return this.userUseCase.deleteUserUseCase.execute(+id);
+  }
 }
