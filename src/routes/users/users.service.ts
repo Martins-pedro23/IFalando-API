@@ -18,19 +18,25 @@ export class UsersService {
     return result;
   }
 
-  findAll() {
-    const result = this.prismaService.user.findMany({
-      select: {
-        userID: true,
-        icon: true,
-        permission: true,
-        Classes: true,
-        email: true,
-        name: true,
-      },
-    });
+  
 
-    return result;
+  async findAll(pageIndex: number, pageSize: number, whereStatement?: Object) {
+    const index = pageIndex || 0;
+    const size = pageSize || 10;
+    const skip = index * size;
+    const [result, count] = await this.prismaService.$transaction([
+      this.prismaService.user.findMany({
+        skip: skip,
+        take: pageSize,
+        where: whereStatement,
+      }),
+      this.prismaService.user.count(),
+    ]);
+
+    return {
+      value: result,
+      count: count,
+    };
   }
 
   findOne(id: number) {
