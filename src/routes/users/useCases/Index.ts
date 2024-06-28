@@ -4,6 +4,7 @@ import { CreateUserUseCase } from './CreateUserUseCase';
 import { LoginUserUseCase } from './LoginUserUseCase';
 import { FindAllUsersUseCase } from './FindAllUsersUseCase';
 import { FindUsersByIdUseCase } from './FindUsersByIdUseCase';
+import { UpdateUserUseCase } from './UpdateUserUseCase';
 
 @Injectable()
 export class UserUseCases {
@@ -12,5 +13,6 @@ export class UserUseCases {
     public loginUserUseCase: LoginUserUseCase,
     public findAllUsersUseCase: FindAllUsersUseCase,
     public findUserByIdUseCase: FindUsersByIdUseCase,
+    public updateUserUseCase: UpdateUserUseCase,
   ) {}
 }

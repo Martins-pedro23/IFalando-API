@@ -30,11 +30,13 @@ export class UsersController {
     return await this.userUseCase.findUserByIdUseCase.execute(id);
   }
 
-  /*
+  
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
+    return this.userUseCase.updateUserUseCase.execute(+id, updateUserDto);
   }
+  
+  /*
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
