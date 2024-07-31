@@ -17,7 +17,6 @@ export class CreateUserUseCase {
       }
 
       createUserDto.password = await bycrypt.hash(createUserDto.password, 8);
-      console.log(createUserDto.password);
 
       const result = await this.usersService.create(createUserDto);
 
