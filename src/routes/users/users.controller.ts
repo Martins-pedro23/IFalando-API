@@ -20,6 +20,11 @@ export class UsersController {
     return await this.userUseCase.loginUserUseCase.execute(login.email, login.password);
   }
 
+  @Post('verifyToken')
+  async verifyToken(@Body() token: {token: string}) {
+    return await this.userUseCase.userTokenVerifyUseCase.execute(token.token)
+    }
+
   @Get()
   async findAll(@Query() param: ISearchModel<SearchUsersParams>) {
     return await this.userUseCase.findAllUsersUseCase.execute(param);

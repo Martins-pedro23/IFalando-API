@@ -31,13 +31,8 @@ export class LoginUserUseCase{
             }
 
             const token = JWT.sign({
-                userID: user.userID,
                 email: user.email,
-                name: user.name,
-                permission: user.permission,
-                icon: user.icon,
-            
-            }, process.env.JWT_SECRET, {expiresIn: '1h'});
+            }, process.env.JWT_SECRET);
 
 
             return {

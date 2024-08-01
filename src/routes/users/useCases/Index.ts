@@ -6,12 +6,14 @@ import { FindAllUsersUseCase } from './FindAllUsersUseCase';
 import { FindUsersByIdUseCase } from './FindUsersByIdUseCase';
 import { UpdateUserUseCase } from './UpdateUserUseCase';
 import { DeleteUserUseCase } from './DeleteUserUseCase';
+import { UserTokenVerifyUseCase } from './UserTokenVerifyUseCase';
 
 @Injectable()
 export class UserUseCases {
   constructor(
     public createUserUse: CreateUserUseCase,
     public loginUserUseCase: LoginUserUseCase,
+    public userTokenVerifyUseCase: UserTokenVerifyUseCase,
     public findAllUsersUseCase: FindAllUsersUseCase,
     public findUserByIdUseCase: FindUsersByIdUseCase,
     public updateUserUseCase: UpdateUserUseCase,

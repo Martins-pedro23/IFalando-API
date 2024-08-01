@@ -8,9 +8,10 @@ import { FindAllUsersUseCase } from './useCases/FindAllUsersUseCase';
 import { FindUsersByIdUseCase } from './useCases/FindUsersByIdUseCase';
 import { UpdateUserUseCase } from './useCases/UpdateUserUseCase';
 import { DeleteUserUseCase } from './useCases/DeleteUserUseCase';
+import { UserTokenVerifyUseCase } from './useCases/UserTokenVerifyUseCase';
 
 @Module({
   controllers: [UsersController],
-  providers: [UsersService, UserUseCases, CreateUserUseCase, LoginUserUseCase, FindAllUsersUseCase, FindUsersByIdUseCase, UpdateUserUseCase, DeleteUserUseCase],
+  providers: [UsersService, UserUseCases, CreateUserUseCase, LoginUserUseCase, FindAllUsersUseCase, FindUsersByIdUseCase, UpdateUserUseCase, DeleteUserUseCase, UserTokenVerifyUseCase],
 })
 export class UsersModule {}
