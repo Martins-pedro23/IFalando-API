@@ -1,7 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { UsersService } from '../users.service';
 import * as JWT from 'jsonwebtoken';
-import * as bycrypt from 'bcryptjs';
 
 interface TokenPayload {
   email: string;
@@ -15,6 +14,7 @@ export class UserTokenVerifyUseCase {
       if (!token) {
         throw new HttpException('Token not provided', 400);
       }
+
 
       const decodedToken = JWT.verify(
         token,

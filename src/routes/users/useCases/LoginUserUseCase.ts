@@ -34,11 +34,20 @@ export class LoginUserUseCase{
                 email: user.email,
             }, process.env.JWT_SECRET);
 
+            const userData = JWT.sign({
+                userID: user.userID,
+                icon: user.icon,
+                email: user.email,
+                name: user.name,
+                permission: user.permission,
+                classes: user.Classes,
+            }, process.env.JWT_SECRET);
 
             return {
                 message: 'User found',
                 status: 200,
-                data: token
+                token : token,
+                data: userData
             };
 
         }catch(e){
