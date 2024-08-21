@@ -39,8 +39,6 @@ export class LoginUserUseCase{
                 icon: user.icon,
                 email: user.email,
                 name: user.name,
-                permission: user.permission,
-                classes: user.Classes,
             }, process.env.JWT_SECRET);
 
             return {

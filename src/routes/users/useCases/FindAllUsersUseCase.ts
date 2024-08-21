@@ -66,14 +66,6 @@ export class FindAllUsersUseCase {
             },
           };
           break;
-        case SearchUsersParams.PERMISSIONS:
-          whereStatement = {
-            permission: {
-              equals: param.value,
-              mode: 'insensitive',
-            },
-          };
-          break;
         case SearchUsersParams.ID:
           whereStatement = {
             userID: {
